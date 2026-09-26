@@ -1,116 +1,139 @@
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
     <title>St4rs of H3aven</title>
-    <link rel="stylesheet" href="index.css">        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
     <div class="container">
-        <header><h1>B4ND</h1></header>
-        <nav>
-            <ul>
-                <li><a href="songs.html" class="nav-link">Songs</a></li>
-                    <li><a href="band.html" class="nav-link active">Band</a></li>
-                    <li><a href="index.html" class="nav-link">Starting</a></li>
-            </ul>
-            <div class="nav-glider"></div>
-        </nav>
-        <main></main>
-        <footer>
-             <div class="social-bar">
-                    <div class="social-glider"></div>
+    <header><h1>B4ND</h1></header>
+    <nav>
+      <ul>
+        <li><a href="songs.html" class="nav-link">Songs</a></li>
+        <li><a href="band.html" class="nav-link active">Band</a></li>
+        <li><a href="index.html" class="nav-link">Starting</a></li>
+      </ul>
+      <div class="nav-glider"></div>
+    </nav>
+    <main></main>
+    <footer>
+      <div class="social-bar">
+        <div class="social-glider"></div>
 
-                    <a class="footer-icons" href="https://www.teknikum.se/" target="_blank">
-                        <i class="fa-solid fa-school"></i>
-                    </a>
+        <a class="footer-icons" href="https://www.teknikum.se/" target="_blank">
+          <i class="fa-solid fa-school"></i>
+        </a>
 
-                    <a class="footer-icons" href="https://mail.google.com/mail/?view=cm&fs=1&to=zaah09001@utb.vaxjo.se&su=Contact%20from%20website" target="_blank">
-                        <i class="fa-solid fa-envelope"></i>
-                    </a>
+        <a
+          class="footer-icons"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=zaah09001@utb.vaxjo.se&su=Contact%20from%20website"
+          target="_blank"
+        >
+          <i class="fa-solid fa-envelope"></i>
+        </a>
 
-                    <a class="footer-icons" href="https://en.wikipedia.org/wiki/The_Stars_of_Heaven" target="_blank">
-                        <i class="fa-brands fa-wikipedia-w"></i>
-                    </a>
+        <a
+          class="footer-icons"
+          href="https://en.wikipedia.org/wiki/The_Stars_of_Heaven"
+          target="_blank"
+        >
+          <i class="fa-brands fa-wikipedia-w"></i>
+        </a>
 
-                    <a class="footer-icons" href="om mig.html" target="_blank">
-                        <i class="fa-regular fa-circle-user"></i>
-                    </a>
+        <a class="footer-icons" href="om mig.html" target="_blank">
+          <i class="fa-regular fa-circle-user"></i>
+        </a>
 
-                    <a class="footer-icons" href="//www.snake.se/" target="_blank">
-                        <i class="fa-solid fa-gamepad"></i>
-                    </a>
-
-                </div>
-                <h4><em><strong>© Stars of Heaven</strong></em></h4>
-        </footer>
+        <a class="footer-icons" href="//www.snake.se/" target="_blank">
+          <i class="fa-solid fa-gamepad"></i>
+        </a>
+      </div>
+      <h4>
+        <em><strong>© Stars of Heaven</strong></em>
+      </h4>
+    </footer>
 
     <script>
-        const socialBar = document.querySelector('.social-bar');
-        const socialGlider = document.querySelector('.social-glider');
-        const socialLinks = document.querySelectorAll('.social-bar a');
+      const socialBar = document.querySelector(".social-bar");
+      const socialGlider = document.querySelector(".social-glider");
 
-        function gliderToFull() {
+      const socialLinks = document.querySelectorAll(".social-bar a");
+
+      function gliderToFull() {
         const barRect = socialBar.getBoundingClientRect();
         const first = socialLinks[0].getBoundingClientRect();
-        const last = socialLinks[socialLinks.length - 1].getBoundingClientRect();
+        const last =
+          socialLinks[socialLinks.length - 1].getBoundingClientRect();
         const padding = 20; // breathing room around the whole icon group
         const left = first.left - barRect.left - padding;
-        const width = (last.right - first.left) + padding * 2;
-        socialGlider.style.left = left + 'px';
-        socialGlider.style.width = width + 'px';
-        }
+        const width = last.right - first.left + padding * 2;
+        socialGlider.style.left = left + "px";
+        socialGlider.style.width = width + "px";
+      }
 
-        function gliderToLink(el) {
+      function gliderToLink(el) {
         const barRect = socialBar.getBoundingClientRect();
         const rect = el.getBoundingClientRect();
         const padding = 14; // breathing room around a single hovered icon
-        socialGlider.style.left = (rect.left - barRect.left - padding) + 'px';
-        socialGlider.style.width = (rect.width + padding * 2) + 'px';
-        }
 
-        window.addEventListener('load', gliderToFull);
-        window.addEventListener('resize', gliderToFull);
+        socialGlider.style.left = rect.left - barRect.left - padding + "px";
+        socialGlider.style.width = rect.width + padding * 2 + "px";
+      }
 
-        socialLinks.forEach(link => {
-        link.addEventListener('mouseenter', () => {
-            gliderToLink(link);
-            socialGlider.classList.add('hovering');
+      window.addEventListener("load", gliderToFull);
+      window.addEventListener("resize", gliderToFull);
+
+      socialLinks.forEach((link) => {
+        link.addEventListener("mouseenter", () => {
+          gliderToLink(link);
+          socialGlider.classList.add("hovering");
         });
-        link.addEventListener('mouseleave', () => {
-            gliderToFull();
-            socialGlider.classList.remove('hovering');
+        link.addEventListener("mouseleave", () => {
+          gliderToFull();
+          socialGlider.classList.remove("hovering");
         });
-        });
+      });
     </script>
 
     <script>
-            const nav = document.querySelector('nav');
-            const glider = document.querySelector('.nav-glider');
-            const links = document.querySelectorAll('.nav-link');
+      const nav = document.querySelector("nav");
+      const glider = document.querySelector(".nav-glider");
+      const links = document.querySelectorAll(".nav-link");
 
-            function moveGliderTo(el) {
-                const navRect = nav.getBoundingClientRect();
-                const rect = el.getBoundingClientRect();
-                glider.style.left = (rect.left - navRect.left) + 'px';
-                glider.style.width = rect.width + 'px';
-            };
+      function moveGliderTo(el) {
+        const navRect = nav.getBoundingClientRect();
+        const rect = el.getBoundingClientRect();
+        glider.style.left = rect.left - navRect.left + "px";
+        glider.style.width = rect.width + "px";
+      }
 
-            const activeLink = document.querySelector('.nav-link.active') || links[0];
+      const activeLink = document.querySelector(".nav-link.active") || links[0];
 
-            window.addEventListener('load', () => moveGliderTo(activeLink));
-            window.addEventListener('resize', () => moveGliderTo(document.querySelector('.nav-link.active') || links [0]));
-            
-            links.forEach(link => {
-                link.addEventListener('mouseenter',  () => {
-                    moveGliderTo(link); 
-                    glider.classList.add('hover-pop');
-                });
-                link.addEventListener('mouseleave', () => {
-                    glider.classList.remove('hover-pop');
-                    moveGliderTo(document.querySelector('.nav-link.active') || links[0]);
-                });
-            });
+      window.addEventListener("load", () => moveGliderTo(activeLink));
+      window.addEventListener("resize", () =>
+        moveGliderTo(document.querySelector(".nav-link.active") || links[0]),
+      );
+
+      links.forEach((link) => {
+        link.addEventListener("mouseenter", () => {
+          moveGliderTo(link);
+          glider.classList.add("hover-pop");
+        });
+        link.addEventListener("mouseleave", () => {
+          glider.classList.remove("hover-pop");
+          moveGliderTo(document.querySelector(".nav-link.active") || links[0]);
+        });
+      });
     </script>
-</body>
+  </body>
+</html>
