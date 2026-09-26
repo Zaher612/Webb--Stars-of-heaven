@@ -1,0 +1,43 @@
+body{
+    background-color: burlywood;
+    color: brown;
+}
+
+
+p{
+    color: brown;
+}
+
+
+
+.darkmagentatext{
+    color: darkmagenta;
+}
+
+h1{
+    font-family: arial;
+    font-family: 22px;
+}
+
+.programm{
+    background-color: chocolate;
+    border: 3px dotted bisque;
+    border-radius: 20%;
+    text-align: center;
+}
+
+.center{
+    text-align: center;
+}
+
+.tankarhöger{
+    text-align: right;
+}
+
+.ommig{
+    border: 3px dotted bisque;
+}
+
+.textdecoration{
+    text-decoration: none;
+}
