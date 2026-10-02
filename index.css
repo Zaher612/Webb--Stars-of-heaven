@@ -1,6 +1,6 @@
 html,
 body {
-  height: 100%;
+  height: 99.89%;
   margin: 0;
   padding: 0;
 }
@@ -131,21 +131,42 @@ body::before {
 
 .container {
   display: grid;
-  grid-template-rows: 20% 8% 59% 13%;
+  grid-template-rows: 20% 8% 58.89% 13%;
   height: 100%;
   gap: 5px;
+}
+
+.container-songs {
+  align-self: center;
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto repeat(5, 100px);
+  height: 90%;
+  row-gap: 20px;
+  column-gap: 30px;
+  padding-left: 10px;
+  width: 650px;
+  margin: auto;
+}
+
+.container-songs h2:not(.h2Songs) {
+  align-self: center;
+  margin-left: 1px;
+  position: relative;
+  bottom: 25px;
+  left: 60px;
 }
 
 .content-row {
   display: flex;
   flex-direction: row; /* text and photo-stack side by side */
   align-items: flex-start; /* keeps both aligned to the top, not stretched */
-  column-gap: px;
 }
 
 .starting-text {
   flex: 1;
-  max-width: 830;
+  max-width: 840px;
 }
 .starting-text p:nth-child(odd) {
   color: rgb(210, 199, 252);
@@ -165,9 +186,6 @@ body::before {
 
 .imgStarting2 {
   z-index: -1;
-  float: none;
-  width: auto;
-  height: auto;
   border-radius: 50000px;
   filter: drop-shadow(0 0 10px rgba(210, 199, 252, 0.8));
 }
@@ -178,6 +196,13 @@ body::before {
   align-items: flex-end;
   row-gap: 100px;
   margin-right: 50px;
+}
+
+.imgSongs {
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  margin-top: 2.5px;
 }
 
 header {
@@ -191,7 +216,6 @@ header {
   color: rgb(210, 199, 252);
   height: 80px;
   text-align: center;
-  overflow: visible;
 }
 
 h1 {
@@ -203,9 +227,52 @@ h1 {
 }
 
 h2 {
-  font-family: "cormorant garamont", serif;
+  font-family: "cormorant garamond", serif;
   font-style: italic;
   color: #a48b59;
+  text-shadow:
+    0 0 3px rgb(210, 199, 252, 0.9),
+    0 0 20px rgb(210, 199, 252),
+    0 0 40px rgba(210, 199, 252, 0.8);
+}
+
+.h2Songs {
+  font-size: 4rem;
+  text-shadow:
+    0 0 3px rgb(210, 199, 252, 0.9),
+    0 0 20px rgb(210, 199, 252),
+    0 0 40px rgba(210, 199, 252, 0.8);
+  text-align: center;
+  margin-right: 100px;
+  grid-column: 1/-1;
+  padding-left: 15%;
+  margin-top: -5px;
+  margin-bottom: 20px;
+}
+
+.h2songsBox {
+  box-shadow: 0 0 15px rgba(210, 199, 252, 0.6);
+  background: rgba(255, 255, 255, 0.07);
+  position: relative;
+  top: -20px;
+  transition: transform 0.2s ease;
+  justify-self: center;
+  width: fit-content;
+  font-size: 2rem;
+  padding: 8px 24px;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+}
+
+.h2songsBox:hover,
+.h2songsBox:focus-within {
+  transform: translateY(-3px) scale(1.08);
+}
+
+h3 {
+  font-size: 20px;
+  margin-left: 15px;
 }
 
 nav {
@@ -281,7 +348,7 @@ nav ul {
 main {
   z-index: 1;
   font-size: 20px;
-  font-family: "cormorant garamont", serif;
+  font-family: "cormorant garamond", serif;
   padding-left: 25px;
   padding-right: 10px;
   box-sizing: border-box;
@@ -293,12 +360,38 @@ main {
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 15px;
   color: rgba(210, 199, 252);
-  box-shadow: 0 0 5px rgba(210, 199, 252, 0.6);
+  box-shadow: 0 0 15px rgba(210, 199, 252, 0.6);
   backdrop-filter: blur(2px) saturate(180%);
   max-height: 500px;
   overflow: hidden;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.mainSongs {
+  letter-spacing: 5px;
+  display: flex;
+  backdrop-filter: none;
+  box-shadow: 0 0 15px rgba(210, 199, 252, 0.6);
+  border: 1px solid rgb(104, 104, 104);
+  border-radius: 20px;
+  padding-left: 25px;
+  padding-right: 10px;
+  margin-left: 60px;
+  margin-right: 60px;
+  height: 65px;
+  width: 400px;
+}
+
+.song-details-link {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.song-details-link:hover,
+.song-details-link:focus-visible {
+  text-shadow: 0 0 10px white;
 }
 
 main::-webkit-scrollbar {
@@ -325,8 +418,7 @@ main::-webkit-scrollbar-thumb:hover {
 footer {
   position: relative;
   text-align: center;
-  padding-left: 8px;
-  padding-top: px;
+  padding-top: 2px;
   gap: 5px;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -339,7 +431,7 @@ footer {
   backdrop-filter: blur(2px) saturate(180%);
   overflow: hidden;
   height: 100px;
-  width: 1571px;
+  width: auto;
 }
 
 .social-bar {
